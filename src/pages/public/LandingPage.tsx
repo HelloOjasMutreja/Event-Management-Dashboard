@@ -25,7 +25,7 @@ const FEATURES = [
     description:
       "Create and manage events with date, time, location, and capacity tracking — all in one organized dashboard.",
     color: "from-blue-500/10 to-cyan-500/10",
-    iconBg: "bg-blue-500/10 text-blue-600",
+    iconBg: "bg-emerald-500/10 text-emerald-400",
   },
   {
     icon: Zap,
@@ -33,7 +33,7 @@ const FEATURES = [
     description:
       "Powered by Supabase, every change reflects instantly across all devices. No manual refreshes needed.",
     color: "from-amber-500/10 to-orange-500/10",
-    iconBg: "bg-amber-500/10 text-amber-600",
+    iconBg: "bg-amber-500/10 text-amber-400",
   },
   {
     icon: Shield,
@@ -41,7 +41,7 @@ const FEATURES = [
     description:
       "Role-based authentication protects your admin panel. Only authorized users can create or manage events.",
     color: "from-emerald-500/10 to-green-500/10",
-    iconBg: "bg-emerald-500/10 text-emerald-600",
+    iconBg: "bg-[hsl(var(--primary))]/10 text-[hsl(var(--primary))]",
   },
 ];
 
@@ -57,8 +57,8 @@ export default function LandingPage() {
       <section className="relative overflow-hidden">
         {/* Background mesh */}
         <div className="absolute inset-0 hero-mesh" />
-        <div className="absolute top-20 left-10 h-72 w-72 rounded-full bg-[hsl(var(--primary))]/5 blur-3xl" />
-        <div className="absolute bottom-10 right-10 h-64 w-64 rounded-full bg-purple-500/5 blur-3xl" />
+        <div className="absolute top-20 left-10 h-72 w-72 rounded-full bg-[hsl(var(--primary))]/8 blur-3xl" />
+        <div className="absolute bottom-10 right-10 h-64 w-64 rounded-full bg-[hsl(var(--gradient-start))]/5 blur-3xl" />
 
         <div className="container relative mx-auto px-4 py-24 md:py-36">
           <div className="mx-auto max-w-3xl text-center">
@@ -81,7 +81,7 @@ export default function LandingPage() {
 
             <div className="animate-fade-up mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ animationDelay: "240ms" }}>
               <Link to="/events">
-                <Button size="lg" className="gradient-bg border-0 text-white shadow-lg shadow-[hsl(var(--primary))]/25 hover:shadow-xl hover:shadow-[hsl(var(--primary))]/30 transition-all px-8 h-12 text-base">
+                <Button size="lg" className="gradient-bg border-0 text-gray-950 font-semibold shadow-lg shadow-[hsl(var(--primary))]/25 hover:shadow-xl hover:shadow-[hsl(var(--primary))]/30 transition-all px-8 h-12 text-base">
                   Browse Events <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -156,7 +156,7 @@ export default function LandingPage() {
         <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-              Upcoming Events
+              <span className="gradient-text">Upcoming Events</span>
             </h2>
             <p className="mt-1 text-[hsl(var(--muted-foreground))]">
               Don't miss what's happening next.
@@ -191,13 +191,13 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 py-20 text-center">
           <div className="mx-auto max-w-lg">
             <h2 className="text-3xl font-bold tracking-tight">
-              Ready to get started?
+              Ready to <span className="gradient-text">get started</span>?
             </h2>
             <p className="mt-3 text-[hsl(var(--muted-foreground))]">
               Log in to the admin panel and start creating events for your community.
             </p>
             <Link to="/login" className="mt-8 inline-block">
-              <Button size="lg" className="gradient-bg border-0 text-white shadow-lg shadow-[hsl(var(--primary))]/25 h-12 px-8 text-base">
+              <Button size="lg" className="gradient-bg border-0 text-gray-950 font-semibold shadow-lg shadow-[hsl(var(--primary))]/25 h-12 px-8 text-base">
                 Go to Dashboard <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>

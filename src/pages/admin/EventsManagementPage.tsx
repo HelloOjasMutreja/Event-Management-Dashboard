@@ -67,7 +67,7 @@ export default function EventsManagementPage() {
           </p>
         </div>
         <Link to="/admin/events/new">
-          <Button className="gradient-bg border-0 text-white shadow-md shadow-[hsl(var(--primary))]/20">
+          <Button className="gradient-bg border-0 text-gray-950 font-semibold shadow-md shadow-[hsl(var(--primary))]/20">
             <Plus className="mr-2 h-4 w-4" /> New Event
           </Button>
         </Link>

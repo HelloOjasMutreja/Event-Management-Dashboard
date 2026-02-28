@@ -59,7 +59,7 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
             className="flex items-center gap-2.5"
           >
             <div className="flex h-7 w-7 items-center justify-center rounded-lg gradient-bg">
-              <Calendar className="h-3.5 w-3.5 text-white" />
+              <Calendar className="h-3.5 w-3.5 text-gray-950" />
             </div>
             <span className="font-bold text-sm tracking-tight">
               Club<span className="gradient-text">Events</span>
@@ -91,7 +91,7 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
                 className={cn(
                   "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                   isActive
-                    ? "gradient-bg text-white shadow-sm shadow-[hsl(var(--primary))]/20"
+                    ? "gradient-bg text-gray-950 shadow-sm shadow-[hsl(var(--primary))]/20"
                     : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]"
                 )}
               >

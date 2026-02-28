@@ -28,7 +28,7 @@ function NotFound() {
         </p>
         <a
           href="/"
-          className="mt-6 inline-block rounded-lg gradient-bg px-6 py-2.5 text-sm font-medium text-white shadow-md shadow-[hsl(var(--primary))]/20 transition-shadow hover:shadow-lg"
+          className="mt-6 inline-block rounded-lg gradient-bg px-6 py-2.5 text-sm font-semibold text-gray-950 shadow-md shadow-[hsl(var(--primary))]/20 transition-shadow hover:shadow-lg"
         >
           Go Home
         </a>

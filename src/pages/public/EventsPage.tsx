@@ -68,7 +68,7 @@ export default function EventsPage() {
         <div className="container mx-auto px-4 py-12">
           <div className="animate-fade-up">
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-              All Events
+              All <span className="gradient-text">Events</span>
             </h1>
             <p className="mt-2 text-[hsl(var(--muted-foreground))] max-w-lg">
               Discover workshops, socials, competitions, and seminars happening in your community.
@@ -138,7 +138,7 @@ export default function EventsPage() {
                     key={p}
                     variant={p === page ? "default" : "ghost"}
                     size="sm"
-                    className={`h-9 w-9 ${p === page ? "gradient-bg text-white border-0" : ""}`}
+                    className={`h-9 w-9 ${p === page ? "gradient-bg text-gray-950 font-semibold border-0" : ""}`}
                     onClick={() => setPage(p)}
                   >
                     {p}

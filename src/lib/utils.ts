@@ -33,29 +33,29 @@ export function truncateText(text: string, maxLength: number): string {
 export function getStatusColor(status: string): string {
   switch (status) {
     case "published":
-      return "bg-green-100 text-green-800";
+      return "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20";
     case "draft":
-      return "bg-yellow-100 text-yellow-800";
+      return "bg-yellow-500/15 text-yellow-400 border border-yellow-500/20";
     case "cancelled":
-      return "bg-red-100 text-red-800";
+      return "bg-red-500/15 text-red-400 border border-red-500/20";
     case "completed":
-      return "bg-blue-100 text-blue-800";
+      return "bg-blue-500/15 text-blue-400 border border-blue-500/20";
     default:
-      return "bg-gray-100 text-gray-800";
+      return "bg-gray-500/15 text-gray-400 border border-gray-500/20";
   }
 }
 
 export function getCategoryColor(category: string): string {
   switch (category) {
     case "Workshop":
-      return "bg-purple-100 text-purple-800";
+      return "bg-purple-500/15 text-purple-400 border border-purple-500/20";
     case "Social":
-      return "bg-pink-100 text-pink-800";
+      return "bg-pink-500/15 text-pink-400 border border-pink-500/20";
     case "Competition":
-      return "bg-orange-100 text-orange-800";
+      return "bg-orange-500/15 text-orange-400 border border-orange-500/20";
     case "Seminar":
-      return "bg-indigo-100 text-indigo-800";
+      return "bg-indigo-500/15 text-indigo-400 border border-indigo-500/20";
     default:
-      return "bg-gray-100 text-gray-800";
+      return "bg-gray-500/15 text-gray-400 border border-gray-500/20";
   }
 }

@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="space-y-3">
             <Link to="/" className="flex items-center gap-2.5">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-bg">
-                <Calendar className="h-4 w-4 text-white" />
+                <Calendar className="h-4 w-4 text-gray-950" />
               </div>
               <span className="text-lg font-bold tracking-tight">
                 Club<span className="gradient-text">Events</span>
@@ -68,7 +68,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} ClubEvents. All rights reserved.
           </p>
           <p className="flex items-center gap-1.5 text-xs text-[hsl(var(--muted-foreground))]">
-            Made with <Heart className="h-3 w-3 text-red-500 fill-red-500" /> by SIGKDD
+            Made with <Heart className="h-3 w-3 text-[hsl(var(--primary))] fill-[hsl(var(--primary))]" /> by SIGKDD
           </p>
         </div>
       </div>

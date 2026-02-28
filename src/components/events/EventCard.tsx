@@ -38,7 +38,7 @@ export default function EventCard({ event, onViewDetails }: EventCardProps) {
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
           {/* Date chip */}
-          <div className="absolute top-3 left-3 flex flex-col items-center rounded-lg bg-white/95 glass px-2.5 py-1.5 shadow-sm">
+          <div className="absolute top-3 left-3 flex flex-col items-center rounded-lg bg-[hsl(var(--card))]/90 glass px-2.5 py-1.5 shadow-sm border border-[hsl(var(--border))]/50">
             <span className="text-[10px] font-bold tracking-wider text-[hsl(var(--primary))]">{month}</span>
             <span className="text-lg font-bold leading-none text-[hsl(var(--foreground))]">{day}</span>
           </div>
