@@ -1,14 +1,10 @@
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AdminSidebar from "./AdminSidebar";
 
-interface AdminLayoutProps {
-  children: React.ReactNode;
-  title: string;
-}
-
-export default function AdminLayout({ children, title }: AdminLayoutProps) {
+export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -28,10 +24,12 @@ export default function AdminLayout({ children, title }: AdminLayoutProps) {
           >
             <Menu className="h-5 w-5" />
           </Button>
-          <h1 className="text-xl font-semibold">{title}</h1>
+          <h1 className="text-xl font-semibold">Admin</h1>
         </header>
 
-        <main className="flex-1 p-6">{children}</main>
+        <main className="flex-1 p-6">
+          <Outlet />
+        </main>
       </div>
     </div>
   );
