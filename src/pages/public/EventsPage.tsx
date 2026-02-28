@@ -68,7 +68,7 @@ export default function EventsPage() {
         <div className="container mx-auto px-4 py-12">
           <div className="animate-fade-up">
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-              All <span className="gradient-text">Events</span>
+              All Events
             </h1>
             <p className="mt-2 text-[hsl(var(--muted-foreground))] max-w-lg">
               Discover workshops, socials, competitions, and seminars happening in your community.

@@ -22,7 +22,7 @@ function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center hero-mesh">
       <div className="text-center animate-fade-up">
-        <h1 className="text-8xl font-extrabold gradient-text">404</h1>
+        <h1 className="text-8xl font-extrabold text-[hsl(var(--primary))]">404</h1>
         <p className="mt-3 text-lg text-[hsl(var(--muted-foreground))]">
           The page you're looking for doesn't exist.
         </p>

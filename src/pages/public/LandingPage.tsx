@@ -71,7 +71,7 @@ export default function LandingPage() {
 
             <h1 className="animate-fade-up text-5xl font-extrabold tracking-tight leading-[1.1] md:text-7xl" style={{ animationDelay: "80ms" }}>
               Manage Events{" "}
-              <span className="gradient-text">Effortlessly</span>
+              <span className="italic text-[hsl(var(--primary))]">Effortlessly</span>
             </h1>
 
             <p className="animate-fade-up mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[hsl(var(--muted-foreground))] md:text-xl" style={{ animationDelay: "160ms" }}>
@@ -118,7 +118,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-xl text-center">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-              Why <span className="gradient-text">ClubEvents</span>?
+              Why <span className="text-[hsl(var(--primary))]">ClubEvents</span>?
             </h2>
             <p className="mt-3 text-[hsl(var(--muted-foreground))]">
               Everything you need to run a thriving club community.
@@ -156,7 +156,7 @@ export default function LandingPage() {
         <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-              <span className="gradient-text">Upcoming Events</span>
+              Upcoming Events
             </h2>
             <p className="mt-1 text-[hsl(var(--muted-foreground))]">
               Don't miss what's happening next.
@@ -191,7 +191,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 py-20 text-center">
           <div className="mx-auto max-w-lg">
             <h2 className="text-3xl font-bold tracking-tight">
-              Ready to <span className="gradient-text">get started</span>?
+              Ready to <span className="italic text-[hsl(var(--primary))]">get started</span>?
             </h2>
             <p className="mt-3 text-[hsl(var(--muted-foreground))]">
               Log in to the admin panel and start creating events for your community.

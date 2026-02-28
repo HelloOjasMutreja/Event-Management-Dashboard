@@ -13,7 +13,7 @@ export default function Footer() {
                 <Calendar className="h-4 w-4 text-gray-950" />
               </div>
               <span className="text-lg font-bold tracking-tight">
-                Club<span className="gradient-text">Events</span>
+                Club<span className="text-[hsl(var(--primary))]">Events</span>
               </span>
             </Link>
             <p className="text-sm text-[hsl(var(--muted-foreground))] max-w-xs leading-relaxed">

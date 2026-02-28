@@ -8,7 +8,7 @@
     --card-foreground: 60 10% 92%;
     --popover: 220 16% 10%;
     --popover-foreground: 60 10% 92%;
-    --primary: 113 86% 67%;
+    --primary: 115 100% 81%;
     --primary-foreground: 220 18% 7%;
     --secondary: 220 14% 14%;
     --secondary-foreground: 60 10% 92%;
@@ -26,10 +26,10 @@
     --info-foreground: 0 0% 100%;
     --border: 220 13% 18%;
     --input: 220 13% 18%;
-    --ring: 113 86% 67%;
+    --ring: 115 100% 81%;
     --radius: 0.625rem;
     --gradient-start: 48 100% 91%;
-    --gradient-end: 113 86% 67%;
+    --gradient-end: 115 100% 81%;
   }
 }
 
@@ -43,6 +43,10 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   }
 
   /* Custom scrollbar */
@@ -64,22 +68,15 @@
 
 /* ── Utility classes ── */
 @layer utilities {
-  .gradient-text {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--gradient-start)),
-      hsl(var(--gradient-end))
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .font-serif {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   }
 
   .gradient-bg {
     background: linear-gradient(
       135deg,
-      hsl(120 70% 42%),
-      hsl(113 86% 67%)
+      hsl(130 80% 52%),
+      hsl(115 100% 81%)
     );
   }
 
@@ -112,7 +109,7 @@
   .hero-mesh {
     background-image: radial-gradient(
         at 27% 37%,
-        hsl(113 86% 67% / 0.07) 0px,
+        hsl(115 100% 81% / 0.07) 0px,
         transparent 50%
       ),
       radial-gradient(
@@ -122,7 +119,7 @@
       ),
       radial-gradient(
         at 52% 99%,
-        hsl(113 60% 50% / 0.05) 0px,
+        hsl(115 80% 60% / 0.05) 0px,
         transparent 50%
       ),
       radial-gradient(

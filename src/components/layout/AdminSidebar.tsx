@@ -62,7 +62,7 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
               <Calendar className="h-3.5 w-3.5 text-gray-950" />
             </div>
             <span className="font-bold text-sm tracking-tight">
-              Club<span className="gradient-text">Events</span>
+              Club<span className="text-[hsl(var(--primary))]">Events</span>
             </span>
           </Link>
           <Button
