@@ -21,6 +21,15 @@ export function formatTime(timeStr: string): string {
   return `${hour12}:${minutes} ${ampm}`;
 }
 
+export function formatDateTime(dateStr: string, timeStr: string): string {
+  return `${formatDate(dateStr)} at ${formatTime(timeStr)}`;
+}
+
+export function truncateText(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength).trimEnd() + "…";
+}
+
 export function getStatusColor(status: string): string {
   switch (status) {
     case "published":
