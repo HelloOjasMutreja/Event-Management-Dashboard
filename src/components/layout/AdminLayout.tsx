@@ -8,26 +8,25 @@ export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-[hsl(var(--muted))]/20">
       <AdminSidebar
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
 
       <div className="flex flex-1 flex-col">
-        <header className="flex h-16 items-center gap-4 border-b bg-[hsl(var(--background))] px-6">
+        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-[hsl(var(--background))]/80 glass px-6 lg:hidden">
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <Menu className="h-5 w-5" />
           </Button>
-          <h1 className="text-xl font-semibold">Admin</h1>
+          <span className="text-sm font-semibold">Admin Panel</span>
         </header>
 
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-6 lg:p-8">
           <Outlet />
         </main>
       </div>

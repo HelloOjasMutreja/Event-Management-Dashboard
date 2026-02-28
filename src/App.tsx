@@ -20,17 +20,17 @@ const EditEventPage = lazy(() => import("@/pages/admin/EditEventPage"));
 
 function NotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-6xl font-bold text-[hsl(var(--primary))]">404</h1>
-        <p className="mt-2 text-lg text-[hsl(var(--muted-foreground))]">
-          Page not found
+    <div className="flex min-h-screen items-center justify-center hero-mesh">
+      <div className="text-center animate-fade-up">
+        <h1 className="text-8xl font-extrabold gradient-text">404</h1>
+        <p className="mt-3 text-lg text-[hsl(var(--muted-foreground))]">
+          The page you're looking for doesn't exist.
         </p>
         <a
           href="/"
-          className="mt-4 inline-block text-[hsl(var(--primary))] underline"
+          className="mt-6 inline-block rounded-lg gradient-bg px-6 py-2.5 text-sm font-medium text-white shadow-md shadow-[hsl(var(--primary))]/20 transition-shadow hover:shadow-lg"
         >
-          Go home
+          Go Home
         </a>
       </div>
     </div>

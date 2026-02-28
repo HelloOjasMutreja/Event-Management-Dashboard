@@ -16,9 +16,9 @@ export default function EventDetailPage() {
     <div className="flex min-h-screen flex-col">
       <Navbar />
 
-      <main className="container mx-auto flex-1 px-4 py-8">
+      <main className="container mx-auto flex-1 px-4 py-8 max-w-5xl">
         <Link to="/events">
-          <Button variant="ghost" className="mb-6">
+          <Button variant="ghost" className="mb-8 -ml-2 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Events
           </Button>

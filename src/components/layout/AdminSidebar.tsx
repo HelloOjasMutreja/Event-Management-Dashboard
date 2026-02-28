@@ -6,6 +6,7 @@ import {
   LogOut,
   Calendar,
   X,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
@@ -24,7 +25,7 @@ interface AdminSidebarProps {
 
 export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
   const location = useLocation();
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
 
   const handleSignOut = async () => {
     try {
@@ -39,7 +40,7 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
       {/* Overlay */}
       {open && (
         <div
-          className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+          className="fixed inset-0 z-40 bg-black/40 lg:hidden animate-fade-in"
           onClick={onClose}
         />
       )}
@@ -47,29 +48,38 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed left-0 top-0 z-50 flex h-full w-64 flex-col border-r bg-[hsl(var(--background))] transition-transform lg:static lg:translate-x-0",
+          "fixed left-0 top-0 z-50 flex h-full w-64 flex-col border-r bg-[hsl(var(--background))] transition-transform duration-200 lg:static lg:translate-x-0",
           open ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <div className="flex h-16 items-center justify-between border-b px-6">
+        {/* Logo */}
+        <div className="flex h-14 items-center justify-between border-b px-5">
           <Link
             to="/admin"
-            className="flex items-center gap-2 font-bold text-lg"
+            className="flex items-center gap-2.5"
           >
-            <Calendar className="h-6 w-6 text-[hsl(var(--primary))]" />
-            <span>Admin</span>
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg gradient-bg">
+              <Calendar className="h-3.5 w-3.5 text-white" />
+            </div>
+            <span className="font-bold text-sm tracking-tight">
+              Club<span className="gradient-text">Events</span>
+            </span>
           </Link>
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="lg:hidden h-8 w-8"
             onClick={onClose}
           >
-            <X className="h-5 w-5" />
+            <X className="h-4 w-4" />
           </Button>
         </div>
 
-        <nav className="flex-1 space-y-1 p-4">
+        {/* Navigation */}
+        <nav className="flex-1 space-y-1 px-3 py-4">
+          <p className="mb-2 px-3 text-[10px] font-semibold uppercase tracking-widest text-[hsl(var(--muted-foreground))]">
+            Navigation
+          </p>
           {SIDEBAR_LINKS.map((link) => {
             const Icon = link.icon;
             const isActive = location.pathname === link.href;
@@ -79,10 +89,10 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
                 to={link.href}
                 onClick={onClose}
                 className={cn(
-                  "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                   isActive
-                    ? "bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]"
-                    : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))]"
+                    ? "gradient-bg text-white shadow-sm shadow-[hsl(var(--primary))]/20"
+                    : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]"
                 )}
               >
                 <Icon className="h-4 w-4" />
@@ -92,17 +102,24 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
           })}
         </nav>
 
-        <div className="border-t p-4">
+        {/* Footer */}
+        <div className="border-t p-3 space-y-1">
+          {user && (
+            <div className="mb-2 rounded-lg bg-[hsl(var(--muted))]/50 px-3 py-2.5">
+              <p className="text-xs font-medium truncate">{user.email}</p>
+              <p className="text-[10px] text-[hsl(var(--muted-foreground))]">Admin</p>
+            </div>
+          )}
           <Link
             to="/"
-            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] mb-1"
+            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))] transition-colors"
           >
-            <Calendar className="h-4 w-4" />
+            <ExternalLink className="h-4 w-4" />
             View Site
           </Link>
           <button
             onClick={handleSignOut}
-            className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-[hsl(var(--destructive))] hover:bg-[hsl(var(--destructive))]/10"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-[hsl(var(--destructive))] hover:bg-[hsl(var(--destructive))]/5 transition-colors"
           >
             <LogOut className="h-4 w-4" />
             Sign Out

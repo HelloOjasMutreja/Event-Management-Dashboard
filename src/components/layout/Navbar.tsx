@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Calendar, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -11,34 +11,55 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-[hsl(var(--background))]/95 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background))]/60">
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300",
+        scrolled
+          ? "border-b bg-[hsl(var(--background))]/80 glass shadow-sm"
+          : "bg-transparent"
+      )}
+    >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2 font-bold text-lg">
-          <Calendar className="h-6 w-6 text-[hsl(var(--primary))]" />
-          <span>ClubEvents</span>
+        <Link to="/" className="group flex items-center gap-2.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-bg transition-transform group-hover:scale-105">
+            <Calendar className="h-4 w-4 text-white" />
+          </div>
+          <span className="text-lg font-bold tracking-tight">
+            Club<span className="gradient-text">Events</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               to={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-[hsl(var(--primary))]",
+                "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg",
                 location.pathname === link.href
-                  ? "text-[hsl(var(--primary))]"
-                  : "text-[hsl(var(--muted-foreground))]"
+                  ? "text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5"
+                  : "text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))]"
               )}
             >
               {link.label}
             </Link>
           ))}
-          <Link to="/login">
-            <Button size="sm">Admin Login</Button>
+          <div className="ml-2 h-5 w-px bg-[hsl(var(--border))]" />
+          <Link to="/login" className="ml-2">
+            <Button size="sm" className="gradient-bg border-0 text-white shadow-md shadow-[hsl(var(--primary))]/20 hover:shadow-lg hover:shadow-[hsl(var(--primary))]/30 transition-shadow">
+              Admin Login
+            </Button>
           </Link>
         </nav>
 
@@ -59,25 +80,25 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t md:hidden">
-          <nav className="container mx-auto flex flex-col gap-3 px-4 py-4">
+        <div className="border-t bg-[hsl(var(--background))]/95 glass md:hidden animate-fade-in">
+          <nav className="container mx-auto flex flex-col gap-1 px-4 py-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => setMobileOpen(false)}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-[hsl(var(--primary))]",
+                  "rounded-lg px-4 py-2.5 text-sm font-medium transition-colors",
                   location.pathname === link.href
-                    ? "text-[hsl(var(--primary))]"
-                    : "text-[hsl(var(--muted-foreground))]"
+                    ? "text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5"
+                    : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))]"
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <Link to="/login" onClick={() => setMobileOpen(false)}>
-              <Button size="sm" className="w-full">
+            <Link to="/login" onClick={() => setMobileOpen(false)} className="mt-2">
+              <Button size="sm" className="w-full gradient-bg border-0 text-white">
                 Admin Login
               </Button>
             </Link>

@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
-import { Search } from "lucide-react";
+import { Search, SlidersHorizontal } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -63,22 +63,35 @@ export default function EventsPage() {
     <div className="flex min-h-screen flex-col">
       <Navbar />
 
-      <main className="container mx-auto flex-1 px-4 py-8">
-        <h1 className="mb-6 text-3xl font-bold">All Events</h1>
+      {/* Header area */}
+      <div className="border-b bg-[hsl(var(--muted))]/30 hero-mesh">
+        <div className="container mx-auto px-4 py-12">
+          <div className="animate-fade-up">
+            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
+              All Events
+            </h1>
+            <p className="mt-2 text-[hsl(var(--muted-foreground))] max-w-lg">
+              Discover workshops, socials, competitions, and seminars happening in your community.
+            </p>
+          </div>
+        </div>
+      </div>
 
+      <main className="container mx-auto flex-1 px-4 py-8">
         {/* Filters */}
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row">
+        <div className="animate-fade-up mb-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "80ms" }}>
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[hsl(var(--muted-foreground))]" />
+            <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[hsl(var(--muted-foreground))]" />
             <Input
               placeholder="Search events..."
               value={search}
               onChange={handleSearch}
-              className="pl-9"
+              className="pl-10 h-11 bg-[hsl(var(--card))]"
             />
           </div>
           <Select value={category} onValueChange={handleCategoryChange}>
-            <SelectTrigger className="w-full sm:w-48">
+            <SelectTrigger className="w-full sm:w-52 h-11 bg-[hsl(var(--card))]">
+              <SlidersHorizontal className="mr-2 h-4 w-4 text-[hsl(var(--muted-foreground))]" />
               <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent>
@@ -92,6 +105,15 @@ export default function EventsPage() {
           </Select>
         </div>
 
+        {/* Results info */}
+        {data && !isLoading && (
+          <p className="mb-6 text-sm text-[hsl(var(--muted-foreground))]">
+            Showing {data.data.length} of {data.count} events
+            {category !== "all" && <span> in <strong>{category}</strong></span>}
+            {search && <span> matching "<strong>{search}</strong>"</span>}
+          </p>
+        )}
+
         {/* Content */}
         {isLoading && <LoadingSpinner />}
         {error && <ErrorMessage onRetry={() => refetch()} />}
@@ -99,23 +121,37 @@ export default function EventsPage() {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="mt-8 flex items-center justify-center gap-2">
+          <div className="mt-10 flex items-center justify-center gap-3">
             <Button
               variant="outline"
               size="sm"
               disabled={page <= 1}
               onClick={() => setPage((p) => p - 1)}
+              className="h-9 px-4"
             >
               Previous
             </Button>
-            <span className="text-sm text-[hsl(var(--muted-foreground))]">
-              Page {page} of {totalPages}
-            </span>
+            <div className="flex items-center gap-1">
+              {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => i + 1).map(
+                (p) => (
+                  <Button
+                    key={p}
+                    variant={p === page ? "default" : "ghost"}
+                    size="sm"
+                    className={`h-9 w-9 ${p === page ? "gradient-bg text-white border-0" : ""}`}
+                    onClick={() => setPage(p)}
+                  >
+                    {p}
+                  </Button>
+                )
+              )}
+            </div>
             <Button
               variant="outline"
               size="sm"
               disabled={page >= totalPages}
               onClick={() => setPage((p) => p + 1)}
+              className="h-9 px-4"
             >
               Next
             </Button>
