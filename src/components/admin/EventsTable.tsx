@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Edit, Trash2 } from "lucide-react";
+import { Edit, Trash2, Eye } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -87,6 +87,11 @@ export default function EventsTable({ events, onDelete }: EventsTableProps) {
                 </TableCell>
                 <TableCell className="text-right">
                   <div className="flex justify-end gap-1 opacity-70 group-hover:opacity-100 transition-opacity">
+                    <Link to={`/admin/events/${event.id}`}>
+                      <Button variant="ghost" size="icon" className="h-8 w-8">
+                        <Eye className="h-3.5 w-3.5" />
+                      </Button>
+                    </Link>
                     <Link to={`/admin/events/${event.id}/edit`}>
                       <Button variant="ghost" size="icon" className="h-8 w-8">
                         <Edit className="h-3.5 w-3.5" />

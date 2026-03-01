@@ -42,7 +42,7 @@ export default function DashboardPage() {
       title: "Total Capacity",
       value: (stats?.totalCapacity ?? 0).toLocaleString(),
       icon: Users,
-      description: "Across all events",
+      description: `${stats?.totalRegistrations ?? 0} registered`,
       color: "text-purple-400 bg-purple-500/10",
     },
   ];

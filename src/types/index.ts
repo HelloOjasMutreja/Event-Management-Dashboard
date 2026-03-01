@@ -52,3 +52,27 @@ export interface EventFilters {
   dateFrom?: string;
   dateTo?: string;
 }
+
+export interface Registration {
+  id: string;
+  event_id: string;
+  registration_number: string;
+  name: string;
+  email: string;
+  section: string | null;
+  department: string;
+  year: string;
+  phone: string | null;
+  created_at: string;
+}
+
+export interface CreateRegistrationInput {
+  event_id: string;
+  registration_number: string;
+  name: string;
+  email: string;
+  section?: string;
+  department: string;
+  year: string;
+  phone?: string;
+}

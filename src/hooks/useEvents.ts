@@ -78,6 +78,7 @@ async function fetchDashboardStats(): Promise<{
   upcoming: number;
   published: number;
   totalCapacity: number;
+  totalRegistrations: number;
 }> {
   const { data, error } = await supabase.from("events").select("*");
   if (error) throw error;
@@ -91,6 +92,7 @@ async function fetchDashboardStats(): Promise<{
       .length,
     published: events.filter((e) => e.status === "published").length,
     totalCapacity: events.reduce((sum, e) => sum + e.capacity, 0),
+    totalRegistrations: events.reduce((sum, e) => sum + e.registered_count, 0),
   };
 }
 

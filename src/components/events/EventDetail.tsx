@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Users, Clock, ArrowUpRight } from "lucide-react";
+import { Calendar, MapPin, Users, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -7,6 +7,7 @@ import {
   getStatusColor,
   getCategoryColor,
 } from "@/lib/utils";
+import RegistrationForm from "@/components/events/RegistrationForm";
 import type { Event } from "@/types";
 
 interface EventDetailProps {
@@ -86,12 +87,22 @@ export default function EventDetail({ event }: EventDetailProps) {
 
       {/* Content grid */}
       <div className="mt-8 grid gap-8 lg:grid-cols-3">
-        {/* Description */}
-        <div className="lg:col-span-2 space-y-4">
-          <h2 className="text-lg font-semibold">About this event</h2>
-          <p className="whitespace-pre-wrap leading-relaxed text-[hsl(var(--muted-foreground))]">
-            {event.description}
-          </p>
+        {/* Description + Registration */}
+        <div className="lg:col-span-2 space-y-8">
+          <div className="space-y-4">
+            <h2 className="text-lg font-semibold">About this event</h2>
+            <p className="whitespace-pre-wrap leading-relaxed text-[hsl(var(--muted-foreground))]">
+              {event.description}
+            </p>
+          </div>
+
+          {/* Registration form - only show for published events */}
+          {event.status === "published" && (
+            <RegistrationForm
+              eventId={event.id}
+              isFull={event.registered_count >= event.capacity}
+            />
+          )}
         </div>
 
         {/* Sidebar info card */}

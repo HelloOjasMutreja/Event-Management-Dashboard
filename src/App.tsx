@@ -17,6 +17,9 @@ const EventsManagementPage = lazy(
 );
 const CreateEventPage = lazy(() => import("@/pages/admin/CreateEventPage"));
 const EditEventPage = lazy(() => import("@/pages/admin/EditEventPage"));
+const AdminEventDetailPage = lazy(
+  () => import("@/pages/admin/AdminEventDetailPage")
+);
 
 function NotFound() {
   return (
@@ -54,6 +57,10 @@ function App() {
               <Route path="/admin" element={<DashboardPage />} />
               <Route path="/admin/events" element={<EventsManagementPage />} />
               <Route path="/admin/events/new" element={<CreateEventPage />} />
+              <Route
+                path="/admin/events/:id"
+                element={<AdminEventDetailPage />}
+              />
               <Route
                 path="/admin/events/:id/edit"
                 element={<EditEventPage />}
