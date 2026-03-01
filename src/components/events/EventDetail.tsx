@@ -34,7 +34,7 @@ export default function EventDetail({ event }: EventDetailProps) {
     <div className="animate-fade-up">
       {/* Hero image */}
       {event.image_url && (
-        <div className="relative aspect-[21/9] max-h-[420px] overflow-hidden rounded-2xl bg-[hsl(var(--muted))]">
+        <div className="relative aspect-[21/9] max-h-[420px] overflow-hidden rounded-2xl border-2 border-[hsl(var(--border))] bg-[hsl(var(--muted))] shadow-brutal">
           <img
             src={event.image_url}
             alt={event.title}
@@ -118,8 +118,8 @@ export default function EventDetail({ event }: EventDetailProps) {
                       index !== INFO_ITEMS.length - 1 ? "border-b" : ""
                     }`}
                   >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[hsl(var(--primary))]/5">
-                      <Icon className="h-4 w-4 text-[hsl(var(--primary))]" />
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border-2 border-[hsl(var(--border))] bg-[hsl(var(--pastel-peach))]">
+                      <Icon className="h-4 w-4 text-[hsl(var(--foreground))]" />
                     </div>
                     <div>
                       <p className="text-xs font-medium uppercase tracking-wider text-[hsl(var(--muted-foreground))]">
@@ -141,12 +141,12 @@ export default function EventDetail({ event }: EventDetailProps) {
               <div className="flex items-center justify-between text-sm">
                 <span className="font-medium">Registration</span>
                 <span
-                  className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                  className={`text-xs font-bold px-2 py-0.5 rounded-full border-2 ${
                     capacityPercent >= 90
-                      ? "bg-red-500/15 text-red-400"
+                      ? "bg-red-100 text-red-700 border-red-700/25"
                       : capacityPercent >= 75
-                      ? "bg-amber-500/15 text-amber-400"
-                      : "bg-emerald-500/15 text-emerald-400"
+                      ? "bg-amber-100 text-amber-700 border-amber-700/25"
+                      : "bg-emerald-100 text-emerald-700 border-emerald-700/25"
                   }`}
                 >
                   {capacityPercent}% filled

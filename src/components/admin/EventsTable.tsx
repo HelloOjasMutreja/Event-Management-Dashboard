@@ -20,10 +20,10 @@ interface EventsTableProps {
 
 export default function EventsTable({ events, onDelete }: EventsTableProps) {
   return (
-    <div className="rounded-lg border overflow-hidden">
+    <div className="rounded-2xl border-2 overflow-hidden shadow-brutal">
       <Table>
         <TableHeader>
-          <TableRow className="bg-[hsl(var(--muted))]/30 hover:bg-[hsl(var(--muted))]/30">
+          <TableRow className="bg-[hsl(var(--muted))] hover:bg-[hsl(var(--muted))]">
             <TableHead className="font-semibold">Event</TableHead>
             <TableHead className="hidden md:table-cell font-semibold">Category</TableHead>
             <TableHead className="hidden sm:table-cell font-semibold">Date</TableHead>
@@ -45,7 +45,7 @@ export default function EventsTable({ events, onDelete }: EventsTableProps) {
                       <img
                         src={event.image_url}
                         alt=""
-                        className="hidden sm:block h-9 w-14 rounded-md object-cover"
+                        className="hidden sm:block h-9 w-14 rounded-lg border-2 border-[hsl(var(--border))] object-cover"
                       />
                     )}
                     <span className="font-medium line-clamp-1">{event.title}</span>

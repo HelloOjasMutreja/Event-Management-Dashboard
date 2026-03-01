@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-[hsl(var(--muted))]/30">
+    <footer className="border-t-2 bg-[hsl(var(--muted))]/40">
       <div className="container mx-auto px-4 py-12">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div className="space-y-3">
             <Link to="/" className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-bg">
-                <Calendar className="h-4 w-4 text-gray-950" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg border-2 border-[hsl(var(--border))] bg-[hsl(var(--primary))] shadow-brutal-sm">
+                <Calendar className="h-4 w-4 text-white" />
               </div>
               <span className="text-lg font-bold tracking-tight">
                 Club<span className="text-[hsl(var(--primary))]">Events</span>
@@ -53,7 +53,7 @@ export default function Footer() {
                 (tech) => (
                   <span
                     key={tech}
-                    className="rounded-full bg-[hsl(var(--muted))] px-3 py-1 text-xs font-medium text-[hsl(var(--muted-foreground))]"
+                    className="rounded-full border-2 border-[hsl(var(--border))] bg-[hsl(var(--card))] px-3 py-1 text-xs font-bold text-[hsl(var(--foreground))]"
                   >
                     {tech}
                   </span>
@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t pt-6 sm:flex-row">
+          <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t-2 pt-6 sm:flex-row">
           <p className="text-xs text-[hsl(var(--muted-foreground))]">
             &copy; {new Date().getFullYear()} ClubEvents. All rights reserved.
           </p>

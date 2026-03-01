@@ -3,23 +3,23 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2",
+  "inline-flex items-center rounded-full border-2 border-[hsl(var(--border))] px-2.5 py-0.5 text-xs font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2",
   {
     variants: {
       variant: {
         default:
-          "border-transparent bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary))]/80",
+          "bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]",
         secondary:
-          "border-transparent bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] hover:bg-[hsl(var(--secondary))]/80",
+          "bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))]",
         destructive:
-          "border-transparent bg-[hsl(var(--destructive))] text-[hsl(var(--destructive-foreground))] hover:bg-[hsl(var(--destructive))]/80",
-        outline: "text-[hsl(var(--foreground))]",
+          "bg-[hsl(var(--destructive))] text-[hsl(var(--destructive-foreground))]",
+        outline: "bg-[hsl(var(--card))] text-[hsl(var(--foreground))]",
         success:
-          "border-transparent bg-green-100 text-green-800",
+          "bg-emerald-100 text-emerald-800 border-emerald-800/25",
         warning:
-          "border-transparent bg-yellow-100 text-yellow-800",
+          "bg-amber-100 text-amber-800 border-amber-800/25",
         info:
-          "border-transparent bg-blue-100 text-blue-800",
+          "bg-sky-100 text-sky-800 border-sky-800/25",
       },
     },
     defaultVariants: {

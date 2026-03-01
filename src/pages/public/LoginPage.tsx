@@ -48,9 +48,7 @@ export default function LoginPage() {
   return (
     <div className="relative flex min-h-screen items-center justify-center px-4">
       {/* Background */}
-      <div className="absolute inset-0 hero-mesh bg-[hsl(var(--muted))]/30" />
-      <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-[hsl(var(--primary))]/8 blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-[hsl(var(--gradient-start))]/5 blur-3xl" />
+      <div className="absolute inset-0 neo-grid" />
 
       <div className="relative w-full max-w-md animate-fade-up">
         {/* Back home */}
@@ -62,10 +60,10 @@ export default function LoginPage() {
           Back to home
         </Link>
 
-        <Card className="border-[hsl(var(--border))]/60 shadow-xl shadow-black/20">
+        <Card className="">
           <CardHeader className="text-center pb-2">
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl gradient-bg shadow-lg shadow-[hsl(var(--primary))]/20">
-              <Calendar className="h-7 w-7 text-gray-950" />
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-[hsl(var(--border))] bg-[hsl(var(--primary))] shadow-brutal-sm">
+              <Calendar className="h-7 w-7 text-white" />
             </div>
             <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>
             <CardDescription className="mt-1">
@@ -104,7 +102,7 @@ export default function LoginPage() {
               </div>
               <Button
                 type="submit"
-                className="w-full h-11 gradient-bg border-0 text-gray-950 font-semibold shadow-md shadow-[hsl(var(--primary))]/20"
+                className="w-full h-11"
                 disabled={isSubmitting}
               >
                 {isSubmitting && (

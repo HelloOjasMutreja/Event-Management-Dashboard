@@ -24,24 +24,21 @@ const FEATURES = [
     title: "Smart Scheduling",
     description:
       "Create and manage events with date, time, location, and capacity tracking — all in one organized dashboard.",
-    color: "from-blue-500/10 to-cyan-500/10",
-    iconBg: "bg-emerald-500/10 text-emerald-400",
+    iconBg: "bg-[hsl(var(--pastel-blue))] text-sky-700",
   },
   {
     icon: Zap,
     title: "Real-time Sync",
     description:
       "Powered by Supabase, every change reflects instantly across all devices. No manual refreshes needed.",
-    color: "from-amber-500/10 to-orange-500/10",
-    iconBg: "bg-amber-500/10 text-amber-400",
+    iconBg: "bg-[hsl(var(--pastel-yellow))] text-amber-700",
   },
   {
     icon: Shield,
     title: "Secure Admin",
     description:
       "Role-based authentication protects your admin panel. Only authorized users can create or manage events.",
-    color: "from-emerald-500/10 to-green-500/10",
-    iconBg: "bg-[hsl(var(--primary))]/10 text-[hsl(var(--primary))]",
+    iconBg: "bg-[hsl(var(--pastel-green))] text-emerald-700",
   },
 ];
 
@@ -55,15 +52,13 @@ export default function LandingPage() {
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden">
-        {/* Background mesh */}
-        <div className="absolute inset-0 hero-mesh" />
-        <div className="absolute top-20 left-10 h-72 w-72 rounded-full bg-[hsl(var(--primary))]/8 blur-3xl" />
-        <div className="absolute bottom-10 right-10 h-64 w-64 rounded-full bg-[hsl(var(--gradient-start))]/5 blur-3xl" />
+        {/* Background grid */}
+        <div className="absolute inset-0 neo-grid" />
 
         <div className="container relative mx-auto px-4 py-24 md:py-36">
           <div className="mx-auto max-w-3xl text-center">
             <div className="animate-fade-up">
-              <Badge variant="secondary" className="mb-6 px-4 py-1.5 text-sm font-medium border border-[hsl(var(--border))]">
+              <Badge variant="secondary" className="mb-6 px-4 py-1.5 text-sm font-bold">
                 <Sparkles className="mr-1.5 h-3.5 w-3.5" />
                 Built for modern teams
               </Badge>
@@ -81,7 +76,7 @@ export default function LandingPage() {
 
             <div className="animate-fade-up mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ animationDelay: "240ms" }}>
               <Link to="/events">
-                <Button size="lg" className="gradient-bg border-0 text-gray-950 font-semibold shadow-lg shadow-[hsl(var(--primary))]/25 hover:shadow-xl hover:shadow-[hsl(var(--primary))]/30 transition-all px-8 h-12 text-base">
+                <Button size="lg" className="px-8 h-12 text-base">
                   Browse Events <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -102,7 +97,7 @@ export default function LandingPage() {
                 { label: "Upcoming", value: stats.upcoming, icon: Clock },
                 { label: "Total Seats", value: stats.totalCapacity.toLocaleString(), icon: Users },
               ].map((stat) => (
-                <div key={stat.label} className="flex flex-col items-center gap-1 rounded-xl border bg-[hsl(var(--card))]/50 glass p-4">
+                <div key={stat.label} className="flex flex-col items-center gap-1 rounded-2xl border-2 bg-[hsl(var(--card))] p-4 shadow-brutal-sm">
                   <stat.icon className="h-4 w-4 text-[hsl(var(--muted-foreground))]" />
                   <span className="text-2xl font-bold">{stat.value}</span>
                   <span className="text-xs text-[hsl(var(--muted-foreground))]">{stat.label}</span>
@@ -114,7 +109,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Features ── */}
-      <section className="border-t bg-[hsl(var(--muted))]/30 py-20">
+      <section className="border-t-2 bg-[hsl(var(--muted))]/40 py-20 neo-grid">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-xl text-center">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -131,7 +126,7 @@ export default function LandingPage() {
               return (
                 <Card
                   key={feature.title}
-                  className="group relative border-0 shadow-none bg-transparent hover:bg-[hsl(var(--card))] hover:shadow-md hover:border transition-all duration-300"
+                  className="group relative transition-all duration-200 hover:-translate-y-1"
                 >
                   <CardContent className="flex flex-col gap-4 p-7">
                     <div
@@ -187,7 +182,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="border-t">
+      <section className="border-t-2">
         <div className="container mx-auto px-4 py-20 text-center">
           <div className="mx-auto max-w-lg">
             <h2 className="text-3xl font-bold tracking-tight">
@@ -197,7 +192,7 @@ export default function LandingPage() {
               Log in to the admin panel and start creating events for your community.
             </p>
             <Link to="/login" className="mt-8 inline-block">
-              <Button size="lg" className="gradient-bg border-0 text-gray-950 font-semibold shadow-lg shadow-[hsl(var(--primary))]/25 h-12 px-8 text-base">
+              <Button size="lg" className="h-12 px-8 text-base">
                 Go to Dashboard <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>

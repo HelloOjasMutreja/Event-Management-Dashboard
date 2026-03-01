@@ -25,14 +25,14 @@ export default function Navbar() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b bg-[hsl(var(--background))]/80 glass shadow-sm"
+          ? "border-b-2 bg-[hsl(var(--background))] shadow-[0_2px_0_hsl(var(--border))]"
           : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="group flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-bg transition-transform group-hover:scale-105">
-            <Calendar className="h-4 w-4 text-gray-950" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg border-2 border-[hsl(var(--border))] bg-[hsl(var(--primary))] shadow-brutal-sm">
+            <Calendar className="h-4 w-4 text-white" />
           </div>
           <span className="text-lg font-bold tracking-tight">
             Club<span className="text-[hsl(var(--primary))]">Events</span>
@@ -57,7 +57,7 @@ export default function Navbar() {
           ))}
           <div className="ml-2 h-5 w-px bg-[hsl(var(--border))]" />
           <Link to="/login" className="ml-2">
-            <Button size="sm" className="gradient-bg border-0 text-gray-950 font-semibold shadow-md shadow-[hsl(var(--primary))]/20 hover:shadow-lg hover:shadow-[hsl(var(--primary))]/30 transition-shadow">
+            <Button size="sm">
               Admin Login
             </Button>
           </Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t bg-[hsl(var(--background))]/95 glass md:hidden animate-fade-in">
+        <div className="border-t-2 bg-[hsl(var(--background))] md:hidden animate-fade-in">
           <nav className="container mx-auto flex flex-col gap-1 px-4 py-4">
             {NAV_LINKS.map((link) => (
               <Link
@@ -98,7 +98,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link to="/login" onClick={() => setMobileOpen(false)} className="mt-2">
-              <Button size="sm" className="w-full gradient-bg border-0 text-gray-950 font-semibold">
+              <Button size="sm" className="w-full">
                 Admin Login
               </Button>
             </Link>

@@ -8,14 +8,14 @@ export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-[hsl(var(--muted))]/20">
+    <div className="flex min-h-screen bg-[hsl(var(--background))] neo-grid">
       <AdminSidebar
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
 
       <div className="flex flex-1 flex-col">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-[hsl(var(--background))]/80 glass px-6 lg:hidden">
+        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b-2 bg-[hsl(var(--card))] px-6 lg:hidden">
           <Button
             variant="ghost"
             size="icon"

@@ -87,9 +87,9 @@ export default function RegistrationForm({
 
   if (success) {
     return (
-      <Card className="border-[hsl(var(--primary))]/30 bg-[hsl(var(--primary))]/5">
+    <Card className="border-[hsl(var(--primary))] bg-[hsl(var(--pastel-peach))]/30">
         <CardContent className="p-6 text-center space-y-3">
-          <CheckCircle2 className="h-12 w-12 text-[hsl(var(--primary))] mx-auto" />
+          <CheckCircle2 className="h-12 w-12 text-emerald-600 mx-auto" />
           <h3 className="text-lg font-semibold">
             Registration Successful!
           </h3>
@@ -264,7 +264,7 @@ export default function RegistrationForm({
             <Button
               type="submit"
               disabled={registerMutation.isPending}
-              className="w-full gradient-bg border-0 text-gray-950 font-semibold shadow-md shadow-[hsl(var(--primary))]/20"
+              className="w-full"
             >
               {registerMutation.isPending ? (
                 <>

@@ -19,12 +19,12 @@ export default function StatsCard({
   iconColor = "text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5",
 }: StatsCardProps) {
   return (
-    <Card className="transition-all hover:shadow-md hover:shadow-[hsl(var(--primary))]/5">
+    <Card className="transition-all duration-150 hover:-translate-y-1">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-sm font-medium text-[hsl(var(--muted-foreground))]">
           {title}
         </CardTitle>
-        <div className={`flex h-9 w-9 items-center justify-center rounded-lg ${iconColor}`}>
+        <div className={`flex h-9 w-9 items-center justify-center rounded-xl border-2 border-[hsl(var(--border))] ${iconColor}`}>
           <Icon className="h-4 w-4" />
         </div>
       </CardHeader>

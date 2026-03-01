@@ -48,18 +48,18 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed left-0 top-0 z-50 flex h-full w-64 flex-col border-r bg-[hsl(var(--background))] transition-transform duration-200 lg:static lg:translate-x-0",
+          "fixed left-0 top-0 z-50 flex h-full w-64 flex-col border-r-2 bg-[hsl(var(--card))] transition-transform duration-200 lg:static lg:translate-x-0",
           open ? "translate-x-0" : "-translate-x-full"
         )}
       >
         {/* Logo */}
-        <div className="flex h-14 items-center justify-between border-b px-5">
+        <div className="flex h-14 items-center justify-between border-b-2 px-5">
           <Link
             to="/admin"
             className="flex items-center gap-2.5"
           >
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg gradient-bg">
-              <Calendar className="h-3.5 w-3.5 text-gray-950" />
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg border-2 border-[hsl(var(--border))] bg-[hsl(var(--primary))] shadow-brutal-sm">
+              <Calendar className="h-3.5 w-3.5 text-white" />
             </div>
             <span className="font-bold text-sm tracking-tight">
               Club<span className="text-[hsl(var(--primary))]">Events</span>
@@ -91,7 +91,7 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
                 className={cn(
                   "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                   isActive
-                    ? "gradient-bg text-gray-950 shadow-sm shadow-[hsl(var(--primary))]/20"
+                    ? "bg-[hsl(var(--primary))] text-white border-2 border-[hsl(var(--border))] shadow-brutal-sm"
                     : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]"
                 )}
               >
@@ -103,9 +103,9 @@ export default function AdminSidebar({ open, onClose }: AdminSidebarProps) {
         </nav>
 
         {/* Footer */}
-        <div className="border-t p-3 space-y-1">
+        <div className="border-t-2 p-3 space-y-1">
           {user && (
-            <div className="mb-2 rounded-lg bg-[hsl(var(--muted))]/50 px-3 py-2.5">
+            <div className="mb-2 rounded-xl border-2 border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-3 py-2.5">
               <p className="text-xs font-medium truncate">{user.email}</p>
               <p className="text-[10px] text-[hsl(var(--muted-foreground))]">Admin</p>
             </div>

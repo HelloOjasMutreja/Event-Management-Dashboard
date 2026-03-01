@@ -64,7 +64,7 @@ export default function EventsPage() {
       <Navbar />
 
       {/* Header area */}
-      <div className="border-b bg-[hsl(var(--muted))]/30 hero-mesh">
+      <div className="border-b-2 bg-[hsl(var(--muted))]/40 neo-grid">
         <div className="container mx-auto px-4 py-12">
           <div className="animate-fade-up">
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
@@ -138,7 +138,7 @@ export default function EventsPage() {
                     key={p}
                     variant={p === page ? "default" : "ghost"}
                     size="sm"
-                    className={`h-9 w-9 ${p === page ? "gradient-bg text-gray-950 font-semibold border-0" : ""}`}
+                    className={`h-9 w-9 ${p === page ? "" : ""}`}
                     onClick={() => setPage(p)}
                   >
                     {p}

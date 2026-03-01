@@ -41,8 +41,8 @@ export function LoadingPage() {
 
 export function SkeletonCard() {
   return (
-    <div className="animate-pulse rounded-lg border bg-[hsl(var(--card))] p-4">
-      <div className="mb-4 h-40 rounded bg-[hsl(var(--muted))]" />
+    <div className="animate-pulse rounded-2xl border-2 bg-[hsl(var(--card))] p-4 shadow-brutal">
+      <div className="mb-4 h-40 rounded-xl bg-[hsl(var(--muted))]" />
       <div className="mb-2 h-4 w-3/4 rounded bg-[hsl(var(--muted))]" />
       <div className="mb-4 h-3 w-1/2 rounded bg-[hsl(var(--muted))]" />
       <div className="space-y-2">

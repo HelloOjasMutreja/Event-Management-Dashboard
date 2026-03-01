@@ -22,28 +22,28 @@ export default function DashboardPage() {
       value: stats?.total ?? 0,
       icon: Calendar,
       description: "All events created",
-      color: "text-blue-400 bg-blue-500/10",
+      color: "text-sky-700 bg-[hsl(var(--pastel-blue))]",
     },
     {
       title: "Published",
       value: stats?.published ?? 0,
       icon: CheckCircle,
       description: "Visible to the public",
-      color: "text-emerald-400 bg-emerald-500/10",
+      color: "text-emerald-700 bg-[hsl(var(--pastel-green))]",
     },
     {
       title: "Upcoming",
       value: stats?.upcoming ?? 0,
       icon: Clock,
       description: "Scheduled events",
-      color: "text-amber-400 bg-amber-500/10",
+      color: "text-amber-700 bg-[hsl(var(--pastel-yellow))]",
     },
     {
       title: "Total Capacity",
       value: (stats?.totalCapacity ?? 0).toLocaleString(),
       icon: Users,
       description: `${stats?.totalRegistrations ?? 0} registered`,
-      color: "text-purple-400 bg-purple-500/10",
+      color: "text-purple-700 bg-[hsl(var(--pastel-lavender))]",
     },
   ];
 
